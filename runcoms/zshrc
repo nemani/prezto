@@ -11,3 +11,52 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+# unsetopt correct
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo)
+
+export PATH="$HOME/.rbenv/bin:$PATH:$HOME/.yarn/bin"
+eval "$(rbenv init -)"
+
+# General
+alias xo="xdg-open"
+
+# Pipenv Alias
+alias pe="pipenv"
+alias pes="pipenv shell"
+alias pei="pipenv install"
+alias peie="pipenv install -e"
+alias pen2="pipenv --python `which python2`"
+alias pen3="pipenv --python `which python3`"
+
+# Docker Alias
+alias dk="docker"
+alias dkc="docker-compose"
+alias dksa="docker ps -aq | xargs docker stop "
+
+
+# USB Restart Alias
+alias usb_start="echo -n '0000:00:14.0' | sudo tee /sys/bus/pci/drivers/xhci_hcd/bind; echo '\nstarted USB (binded)';"
+alias usb_stop="echo -n '0000:00:14.0' | sudo tee /sys/bus/pci/drivers/xhci_hcd/unbind; echo '\nstopped USB (unbinded)';"
+alias usb_restart="usb_stop;usb_start;"
+
+
+# Volume control using pactl
+alias vol="sudo pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo "
+
+
+# AIcrowd Alias
+alias stack-debug="echo 'docker localstack container started, admin at 8081 live at 3000'; docker run --rm -e DEBUG=1 -e SERVICES='s3' -p 4572:4572 -p 8001:8080 localstack/localstack;"
+alias stack-back="echo 'docker localstack container started DEBUG, admin at 8081 live at 3000'; docker run --rm -d -e DEBUG=1 -e SERVICES='s3' -p 4572:4572 -p 8001:8080 localstack/localstack;"
+
+# Set Browser for xdg-open
+export BROWSER="google-chrome"
+
+# Setup for Github cli
+alias git=hub
+
+# Setup for pyenv
+export PATH="/home/nemani/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+

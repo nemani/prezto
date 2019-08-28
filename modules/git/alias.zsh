@@ -31,21 +31,18 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias g='git'
 
   # Branch (b)
-  alias gb='git branch'
-  alias gba='git branch --all --verbose'
+  alias gb='git branch -vv'
+  alias gba='git branch --all -v'
   alias gbc='git checkout -b'
   alias gbd='git branch --delete'
   alias gbD='git branch --delete --force'
-  alias gbl='git branch --verbose'
-  alias gbL='git branch --all --verbose'
+  alias gbL='git branch --all -v'
   alias gbm='git branch --move'
   alias gbM='git branch --move --force'
   alias gbr='git branch --move'
   alias gbR='git branch --move --force'
   alias gbs='git show-branch'
   alias gbS='git show-branch --all'
-  alias gbv='git branch --verbose'
-  alias gbV='git branch --verbose --verbose'
   alias gbx='git branch --delete'
   alias gbX='git branch --delete --force'
 
@@ -82,14 +79,18 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gCt='git checkout --theirs --'
   alias gCT='gCt $(gCl)'
 
-  # Data (d)
-  alias gd='git ls-files'
-  alias gdc='git ls-files --cached'
-  alias gdx='git ls-files --deleted'
-  alias gdm='git ls-files --modified'
-  alias gdu='git ls-files --other --exclude-standard'
-  alias gdk='git ls-files --killed'
-  alias gdi='git status --porcelain --short --ignored | sed -n "s/^!! //p"'
+  # Diff (d)
+  alias gd='git diff'
+  alias gdc='git diff --cached'
+
+  # Data (D)
+  alias gD='git ls-files'
+  alias gDc='git ls-files --cached'
+  alias gDx='git ls-files --deleted'
+  alias gDm='git ls-files --modified'
+  alias gDu='git ls-files --other --exclude-standard'
+  alias gDk='git ls-files --killed'
+  alias gDi='git status --porcelain --short --ignored | sed -n "s/^!! //p"'
 
   # Fetch (f)
   alias gf='git fetch'
@@ -171,8 +172,8 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias ggw='git grep --word-regexp'
 
   # Index (i)
-  alias gia='git add'
-  alias giA='git add --patch'
+  alias ga='git add'
+  alias gap='git add --patch'
   alias giu='git add --update'
   alias gid='git diff --no-ext-diff --cached'
   alias giD='git diff --no-ext-diff --cached --word-diff'
@@ -218,8 +219,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias grs='git rebase --skip'
 
   # Remote (R)
-  alias gR='git remote'
-  alias gRl='git remote --verbose'
+  alias gR='git remote -vv'
   alias gRa='git remote add'
   alias gRx='git remote rm'
   alias gRm='git remote rename'
@@ -229,7 +229,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gRb='git-hub-browse'
 
   # Stash (s)
-  alias gs='git stash'
+  alias gsh='git stash'
   alias gsa='git stash apply'
   alias gsx='git stash drop'
   alias gsX='git-stash-clear-interactive'
@@ -259,6 +259,9 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gtl='git tag -l'
   alias gts='git tag -s'
   alias gtv='git verify-tag'
+
+  # Status (s)
+  alias gs='git status'
 
   # Working Copy (w)
   alias gws='git status --ignore-submodules=${_git_status_ignore_submodules} --short'
