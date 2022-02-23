@@ -13,10 +13,10 @@ fi
 # Customize to your needs...
 # unsetopt correct
 
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo)
+ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo)
 
-export PATH="$HOME/.rbenv/bin:$PATH:$HOME/.yarn/bin"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH:$HOME/.yarn/bin"
+# eval "$(rbenv init -)"
 
 # General
 alias xo="xdg-open"
@@ -59,4 +59,25 @@ alias git=hub
 export PATH="/home/nemani/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+
+alias tf="terraform"
+alias tfi="terraform init"
+alias tfp="terraform plan"
+alias tfpot="terraform plan -out test"
+alias tfa="terraform apply" 
+alias tfd="terraform destroy"
+alias gooc="google-chrome"
+
+export KITE_HOME=/home/nemani/work/webrtc/KITE
+export PATH=$PATH:$KITE_HOME/scripts/linux/path:$KITE_HOME/third_party/allure-2.10.0/bin:$KITE_HOME/node
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/home/nemani/bin:$PATH:/usr/local/go/bin:/home/nemani/go/bin"
+
+
+export PATH="$PATH:/home/nemani/.local/share/solana/install/active_release/bin"
+
+export GOPATH=$HOME/go
+
+alias mvf="mosh nemani@144.126.144.154"
 
